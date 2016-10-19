@@ -1,0 +1,35 @@
+
+{% verbatim %}
+<div id="listApp">
+
+    <ul>
+        <li v-for="product in products">
+            <span>{{ product }}</span>
+            <button v-on:click="removeProduct($index,$event)">X</button>
+        </li>
+    </ul>
+
+</div>
+{% endverbatim %}
+
+
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/vue.js"></script>
+
+<script>
+
+    new Vue({
+        el: '#listApp',
+        data: {{ data | raw }},
+        methods: {
+            removeProduct: function(index,event) {
+                this.products.splice(index, 1);
+            }
+        }
+    })
+
+
+</script>
+
+

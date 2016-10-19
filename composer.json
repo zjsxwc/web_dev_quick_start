@@ -1,0 +1,19 @@
+{
+    "autoload": {
+        "psr-4": {
+            "BizModel\\": "models/"
+        }
+    },
+    "repositories": [
+        {"type": "composer", "url": "https://packagist.phpcomposer.com"},
+        {"packagist": false}
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "silex/silex": "~2.0",
+        "doctrine/orm": "^2.5",
+        "symfony/yaml": "^3.1",
+        "symfony/var-dumper": "^3.1",
+        "twig/twig": "^1.26"
+    }
+}
