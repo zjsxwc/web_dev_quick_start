@@ -14,6 +14,7 @@
         "doctrine/orm": "^2.5",
         "symfony/yaml": "^3.1",
         "symfony/var-dumper": "^3.1",
-        "twig/twig": "^1.26"
+        "twig/twig": "^1.26",
+        "doctrine/migrations": "^1.4"
     }
 }
