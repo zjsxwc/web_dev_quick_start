@@ -4,9 +4,20 @@ A quick startup web app.
 
 run server `php -S localhost:8199 -t public/`
 
+代码目录是Top目录，composer.json里已经写了
+```
+"autoload": {
+        "psr-4": {
+            "Top\\": "Top/"
+        }
+    },
+```
+
+关于dbschema类生成，大部分情况下通过在开发环境用phpmyadmin等可视化数据库客户端里建好表，然后我们通过orm:convert:mapping这类命令导出表结构为php的dbschema类，然后把这些类分享给别人。
 
 doctrine
 ```
+#数据库表结构导入导出相关
 vendor/bin/doctrine orm:convert:mapping --force --from-database annotation ./dbSchema/
 
 vendor/bin/doctrine orm:generate-entities ./ --generate-annotations=true
@@ -20,7 +31,7 @@ vendor/bin/doctrine orm:schema-tool:update --force
 
 
 
-
+#数据迁移相关
 php vendor/bin/doctrine-migrations  migrations:generate  --configuration="dbMigration/migrations.yml"  --db-configuration="dbMigration/migrations-db.php"
 
 php vendor/bin/doctrine-migrations   migrations:status   --configuration="dbMigration/migrations.yml"  --db-configuration="dbMigration/migrations-db.php"
@@ -43,12 +54,5 @@ php vendor/bin/doctrine-migrations  help migrations:migrate
 
 ```
 
-代码目录是Top目录，composer.json里已经写了
-```
-"autoload": {
-        "psr-4": {
-            "Top\\": "Top/"
-        }
-    },
-```
+
 
