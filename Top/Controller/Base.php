@@ -30,6 +30,6 @@ class Base
     {
         $this->app = $app;
         $this->em = $app['entity_manager'];
-        $this->twigEnv = $this->app['twig'];
+        $this->twigEnv = $app['twig'];
     }
 }
