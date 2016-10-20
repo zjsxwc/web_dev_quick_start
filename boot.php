@@ -14,43 +14,22 @@ $app = new Silex\Application();
 
 $app['entity_manager'] = require_once __DIR__ . "/doctrineBootstrap.php";
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
+    'twig.path' => __DIR__.'/Top/views',
 ));
 
 
+
+//start routing
 $app->get('/product/{name}', function ($name) use ($app) {
-    /** @var \Doctrine\ORM\EntityManager $em */
-    $em = $app['entity_manager'];
-    $product = new Top\BizModel\Products();
-    $product->setName($name);
-
-    $em->persist($product);
-    $em->flush();
-
-    return 'Saved ' . $product->getId();
+    $controller = new Top\Controller\Product($app);
+    return $controller->create($name);
 });
-
 
 $app->get('/list', function () use ($app) {
-    /** @var \Doctrine\ORM\EntityManager $em */
-    $em = $app['entity_manager'];
-
-    $productRepository = $em->getRepository('Top\BizModel\Products');
-    /** @var Top\BizModel\Products[] $products */
-    $products = $productRepository->findAll();
-    $data = [
-        'products'=>[]
-    ];
-    foreach ($products as $product) {
-        $data['products'][] = $product->getName();
-    }
-
-    /** @var \Twig_Environment $twigEnv */
-    $twigEnv = $app['twig'];
-    return $twigEnv->render('list.twig',array(
-        'data' => json_encode($data)
-    ));
-
+    $controller = new Top\Controller\Product($app);
+    return $controller->listAll();
 });
+
+
 
 $app->run();
