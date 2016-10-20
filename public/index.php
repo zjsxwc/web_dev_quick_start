@@ -6,4 +6,4 @@
  * Time: 9:33 PM
  */
 
-require_once __DIR__ . "/../boot.php";
+require_once __DIR__ . "/../start.php";

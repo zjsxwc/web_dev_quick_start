@@ -13,6 +13,7 @@ namespace Top\Controller;
  * Class Base
  * @package Top\Controller
  * @property \Doctrine\ORM\EntityManager $em
+ * @property \Twig_Environment $twigEnv
  */
 class Base
 {
@@ -20,6 +21,7 @@ class Base
 
     public $app = null;
     public $em = null;
+    public $twigEnv = null;
 
     /**
      * Base constructor.
@@ -28,5 +30,6 @@ class Base
     {
         $this->app = $app;
         $this->em = $app['entity_manager'];
+        $this->twigEnv = $this->app['twig'];
     }
 }

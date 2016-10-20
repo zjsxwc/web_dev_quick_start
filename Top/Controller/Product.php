@@ -34,9 +34,7 @@ class Product extends Base
             $data['products'][] = $product->getName();
         }
 
-        /** @var \Twig_Environment $twigEnv */
-        $twigEnv = $this->app['twig'];
-        return $twigEnv->render('list.twig',array(
+        return $this->twigEnv->render('list.twig',array(
             'data' => json_encode($data)
         ));
 
