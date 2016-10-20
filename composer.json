@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "BizModel\\": "models/"
+            "Top\\": "Top/"
         }
     },
     "repositories": [

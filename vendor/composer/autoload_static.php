@@ -15,6 +15,10 @@ class ComposerStaticInit3c3ff1b9a724d04f09f08f27069e6a4c
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Top\\' => 4,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -45,13 +49,13 @@ class ComposerStaticInit3c3ff1b9a724d04f09f08f27069e6a4c
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
         ),
-        'B' => 
-        array (
-            'BizModel\\' => 9,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Top\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -123,10 +127,6 @@ class ComposerStaticInit3c3ff1b9a724d04f09f08f27069e6a4c
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-        ),
-        'BizModel\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/models',
         ),
     );
 

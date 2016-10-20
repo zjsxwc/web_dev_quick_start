@@ -21,7 +21,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->get('/product/{name}', function ($name) use ($app) {
     /** @var \Doctrine\ORM\EntityManager $em */
     $em = $app['entity_manager'];
-    $product = new BizModel\Product();
+    $product = new Top\BizModel\Products();
     $product->setName($name);
 
     $em->persist($product);
@@ -35,8 +35,8 @@ $app->get('/list', function () use ($app) {
     /** @var \Doctrine\ORM\EntityManager $em */
     $em = $app['entity_manager'];
 
-    $productRepository = $em->getRepository('BizModel\Product');
-    /** @var BizModel\Product[] $products */
+    $productRepository = $em->getRepository('Top\BizModel\Products');
+    /** @var Top\BizModel\Products[] $products */
     $products = $productRepository->findAll();
     $data = [
         'products'=>[]
