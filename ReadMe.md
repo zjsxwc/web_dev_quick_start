@@ -11,7 +11,9 @@ vendor/bin/doctrine orm:convert:mapping --force --from-database annotation ./dbS
 
 vendor/bin/doctrine orm:generate-entities ./ --generate-annotations=true
 
+
 vendor/bin/doctrine orm:schema-tool:drop --force
+vendor/bin/doctrine help orm:schema-tool:create
 vendor/bin/doctrine orm:schema-tool:create
 Or
 vendor/bin/doctrine orm:schema-tool:update --force
@@ -33,6 +35,9 @@ php vendor/bin/doctrine-migrations   migrations:migrate --write-sql  --configura
 
 php vendor/bin/doctrine-migrations  help migrations:migrate
 
+
+
+# migrations:diff --filter-expression[=FILTER-EXPRESSION] , $this->addSql('ALTER TABLE users ADD test VARCHAR(255) NOT NULL');
 
 
 
