@@ -12,10 +12,11 @@ $autoLoader = require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new Silex\Application();
 
-$app['entity_manager'] = require_once __DIR__ . "/doctrineBootstrap.php";
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/Top/views',
 ));
+
+$app['entity_manager'] = require_once __DIR__ . "/doctrineBootstrap.php";
 
 $app['call_action'] = function () use ($app) {
     return function () use ($app) {
