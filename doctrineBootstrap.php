@@ -19,10 +19,7 @@ $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/dbSchema"
 //$config = Setup::createYAMLMetadataConfiguration(array(__DIR__."/config/yaml"), $isDevMode);
 
 // database configuration parameters
-$conn = array(
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db.sqlite',
-);
+$conn = include __DIR__ . "/dbConfig.php";
 
 // obtaining the entity manager
 return $entityManager = EntityManager::create($conn, $config);
