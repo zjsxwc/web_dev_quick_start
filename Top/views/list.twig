@@ -1,4 +1,3 @@
-
 {% verbatim %}
 <div id="listApp">
 
@@ -9,21 +8,31 @@
         </li>
     </ul>
 
+    <validator name="formValidation">
+        <form>
+            <input name="title" initial="off"  v-validate:title="{ required: true }">
+            <p v-if="$formValidation.title.required">请填写标题</p>
+
+            <input name="title2" initial="off" detect-change="off" detect-blur="off" v-validate:title2="{ required: true }">
+            <p v-if="$formValidation.title2.required">请填写标题2</p>
+        </form>
+    </validator>
+
 </div>
 {% endverbatim %}
 
 
-
 <script src="/static/js/jquery.js"></script>
 <script src="/static/js/vue.js"></script>
+<script src="/static/js/vue-validator.min.js"></script>
 
 <script>
 
-    new Vue({
+    var app = new Vue({
         el: '#listApp',
         data: {{ data | raw }},
         methods: {
-            removeProduct: function(index,event) {
+            removeProduct: function (index, event) {
                 this.products.splice(index, 1);
             }
         }

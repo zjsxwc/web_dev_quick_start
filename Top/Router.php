@@ -25,5 +25,9 @@ class Router
             return $callAction('listAll@Top\Controller\Product');
         });
 
+        $app->get('/silex/list', function () use ($app,$callAction) {
+            return $callAction('listAll@Top\Controller\Product');
+        });
+
     }
 }

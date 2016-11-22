@@ -6,13 +6,12 @@
  * Time: 2:13 PM
  */
 
-error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-
 $autoLoader = require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new Silex\Application();
 
 $app->register(new Silex\Provider\SessionServiceProvider());
+$app['session']->start();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/Top/views',
